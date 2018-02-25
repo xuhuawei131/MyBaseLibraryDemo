@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Looper;
 import android.support.v4.app.Fragment;
 
-import com.xhwbaselibrary.http.request.SSportRequest;
+import com.xhwbaselibrary.http.request.XhwRequest;
 import com.xhwbaselibrary.interfaces.LifeCircleContext;
 
 import static com.xhwbaselibrary.lifecircle.Lifecycle.STATUS_DESTROY;
@@ -21,10 +21,10 @@ public abstract class BaseSSResponse {
 
     public abstract void onResultFailed(int code, String str);
 
-    private SSportRequest sSportRequest;
+    private XhwRequest xhwRequest;
 
-    public void setRequest(SSportRequest sSportRequest) {
-        this.sSportRequest = sSportRequest;
+    public void setRequest(XhwRequest xhwRequest) {
+        this.xhwRequest = xhwRequest;
     }
 
     /**
@@ -134,23 +134,23 @@ public abstract class BaseSSResponse {
 
         if (isOnBackgroundThread()) {
             //如果当前线程不是主线程，则不允许调用
-//            MageLog.e("Tag为" + sSportRequest.getTag() + "如果当前线程不是主线程，则不允许调用!");
+//            MageLog.e("Tag为" + xhwRequest.getTag() + "如果当前线程不是主线程，则不允许调用!");
             return false;
         }
 
 
-        if (sSportRequest.getLifecycle() != null && sSportRequest.getLifecycle().getStatus() == STATUS_DESTROY) {
+        if (xhwRequest.getLifecycle() != null && xhwRequest.getLifecycle().getStatus() == STATUS_DESTROY) {
             //如果代理为空，则不允许调用
-//            MageLog.e("Tag为" + sSportRequest.getTag() + "的请求载体生命周期已结束, 不予回调!");
+//            MageLog.e("Tag为" + xhwRequest.getTag() + "的请求载体生命周期已结束, 不予回调!");
             return false;
         }
 
-        boolean result = isActivityOk(sSportRequest.getLifeCircleContext()) ||
-                isFragmentOk(sSportRequest.getLifeCircleContext()) ||
-                isContextOk(sSportRequest.getContext());
+        boolean result = isActivityOk(xhwRequest.getLifeCircleContext()) ||
+                isFragmentOk(xhwRequest.getLifeCircleContext()) ||
+                isContextOk(xhwRequest.getContext());
 
         if (!result) {
-//            MageLog.i("Tag为" + sSportRequest.getTag() + "的请求 canCallProxy 判定结果为 " + result + "无法回调！");
+//            MageLog.i("Tag为" + xhwRequest.getTag() + "的请求 canCallProxy 判定结果为 " + result + "无法回调！");
         }
         return result;
     }

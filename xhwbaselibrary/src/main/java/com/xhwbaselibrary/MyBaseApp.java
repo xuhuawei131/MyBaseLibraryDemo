@@ -27,19 +27,22 @@ import okhttp3.OkHttpClient;
  */
 
 public abstract class MyBaseApp extends Application {
-
     public static Context context;
     @Override
-    public void onCreate() {
+    public final void onCreate() {
         super.onCreate();
         if (isAppMainProcess()) {
 
             MyAppContext.getInstance().init(this);
+            //崩溃日志收集
             CrashHandler.getInstance();
+            //网络状态判断
             MyNetStatusHepler.getInstance().register();
+            //前后台 状态监测
             MyBackCheckHelper.getInstance().isBackground();
 
             initOkGo();
+
             initLog();
 
             onlyInitOnce();

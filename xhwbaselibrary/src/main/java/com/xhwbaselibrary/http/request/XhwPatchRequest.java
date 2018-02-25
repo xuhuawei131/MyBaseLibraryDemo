@@ -10,10 +10,10 @@ import java.util.List;
  */
 
 public class XhwPatchRequest {
-    private List<SSportRequest> requestList;
+    private List<XhwRequest> requestList;
     private PatchSSResponse patchSSResponse;
 
-    public XhwPatchRequest(List<SSportRequest> requestList, PatchSSResponse patchSSResponse){
+    public XhwPatchRequest(List<XhwRequest> requestList, PatchSSResponse patchSSResponse){
 
     }
 }

@@ -1,8 +1,13 @@
 package com.xuhuawei.mybaselibrarydemo;
 
+import android.widget.SlidingDrawer;
+
 import com.xhwbaselibrary.base.BaseActivity;
+import com.xhwbaselibrary.lifecircle.LifeCircleCallback;
 
 public class MainActivity extends BaseActivity {
+
+    SlidingDrawer drawer;
     @Override
     protected void init() {
 
@@ -23,4 +28,6 @@ public class MainActivity extends BaseActivity {
     protected void onMyDestory() {
 
     }
+
+
 }

@@ -10,7 +10,7 @@ import com.lzy.okgo.request.BaseRequest;
 import com.lzy.okgo.request.GetRequest;
 import com.lzy.okgo.request.PostRequest;
 import com.xhwbaselibrary.http.XhwHttp;
-import com.xhwbaselibrary.http.request.SSportRequest;
+import com.xhwbaselibrary.http.request.XhwRequest;
 import com.xhwbaselibrary.http.response.BaseSSResponse;
 
 import java.io.File;
@@ -51,22 +51,22 @@ public class HttpExecutor {
     public void cancel(XhwHttp mageRequest) {
     }
 
-    public void sendGet(SSportRequest sSportRequest) {
-        GetRequest getRequest = OkGo.get(sSportRequest.getUrl());
-        excuteRequest(getRequest,sSportRequest);
+    public void sendGet(XhwRequest xhwRequest) {
+        GetRequest getRequest = OkGo.get(xhwRequest.getUrl());
+        excuteRequest(getRequest, xhwRequest);
     }
 
-    public void sendPost(SSportRequest sSportRequest) {
-        PostRequest postRequest = OkGo.post(sSportRequest.getUrl());
-        excuteRequest(postRequest,sSportRequest);
+    public void sendPost(XhwRequest xhwRequest) {
+        PostRequest postRequest = OkGo.post(xhwRequest.getUrl());
+        excuteRequest(postRequest, xhwRequest);
     }
 
-    public void upload(SSportRequest sSportRequest) {
+    public void upload(XhwRequest xhwRequest) {
 
     }
 
 
-    public void download(SSportRequest sSportRequest) {
+    public void download(XhwRequest xhwRequest) {
 
     }
 
@@ -75,7 +75,7 @@ public class HttpExecutor {
      * @param request
      * @param mageRequest
      */
-    private void excuteRequest(BaseRequest request,  SSportRequest mageRequest){
+    private void excuteRequest(BaseRequest request,  XhwRequest mageRequest){
         copyRequest(request,mageRequest);
          final BaseSSResponse ssResponse=mageRequest.getResponseProxy();
         request.execute(new StringCallback() {
@@ -116,7 +116,7 @@ public class HttpExecutor {
      * @param request
      * @param mageRequest
      */
-    protected void copyRequest(BaseRequest request, SSportRequest mageRequest){
+    protected void copyRequest(BaseRequest request, XhwRequest mageRequest){
         if(!TextUtils.isEmpty(mageRequest.getTag())){
             request.tag(mageRequest.getTag());
         }

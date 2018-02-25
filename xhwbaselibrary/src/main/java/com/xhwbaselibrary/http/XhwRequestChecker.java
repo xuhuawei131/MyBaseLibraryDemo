@@ -2,7 +2,7 @@ package com.xhwbaselibrary.http;
 
 import android.text.TextUtils;
 
-import com.xhwbaselibrary.http.request.SSportRequest;
+import com.xhwbaselibrary.http.request.XhwRequest;
 import com.xhwbaselibrary.http.response.BaseSSResponse;
 import com.xhwbaselibrary.utils.NetworkUtil;
 
@@ -18,7 +18,7 @@ public class XhwRequestChecker {
      * @param request
      * @return
      */
-    public static boolean check(SSportRequest request) throws RuntimeException {
+    public static boolean check(XhwRequest request) throws RuntimeException {
         BaseSSResponse response=request.getResponseProxy();
         if(!NetworkUtil.isNetConnected()){
 //            MageLog.e("Tag为 "+request.getTag()+" 的请求网络不可用!");

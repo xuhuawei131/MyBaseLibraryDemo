@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.request.BaseBodyRequest;
 import com.lzy.okgo.request.BaseRequest;
-import com.xhwbaselibrary.http.request.SSportRequest;
+import com.xhwbaselibrary.http.request.XhwRequest;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class BaseExecutor {
      * @param request
      * @param mageRequest
      */
-    protected void buildParams(BaseRequest request, SSportRequest mageRequest){
+    protected void buildParams(BaseRequest request, XhwRequest mageRequest){
 
 //        MageLog.i(mageRequest.toString());
 

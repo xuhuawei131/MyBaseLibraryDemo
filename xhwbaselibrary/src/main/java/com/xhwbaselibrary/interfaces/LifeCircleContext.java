@@ -11,16 +11,12 @@ import com.xhwbaselibrary.lifecircle.LifeCircleCallback;
  */
 
 public interface LifeCircleContext {
-    /**
-     * 获取生命周期 监听的presenter
-     * @return
-     */
-    public LifeCircleCallback getLifeCircleCallbackPresenter();
     public Context getContext();
 
 
     public View findViewById(int viewId);
-    public void showLoadingView();
-    public void dismissLoadingView();
+    public void showProgressDialog(String content);
+    public void showProgressDialog();
+    public void disProgressDialog();
     public void finish();
 }

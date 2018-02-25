@@ -24,7 +24,7 @@ import java.util.HashMap;
  * Created by xuhuawei on 2017/6/6 0006.
  */
 
-public class SSportRequest {
+public class XhwRequest {
     /**
      * 请求的方式
      */
@@ -49,8 +49,6 @@ public class SSportRequest {
      * 请求的标号，用于取消请求使用
      */
     protected String tag = "";
-
-
     /**
      * 适合在无Activity/Fragment的情况下使用
      */
@@ -100,10 +98,11 @@ public class SSportRequest {
     };
 
 
-    public SSportRequest() {
+    public XhwRequest() {
+
     }
 
-    public SSportRequest(String tag) {
+    public XhwRequest(String tag) {
         this.tag = tag;
     }
 
@@ -121,12 +120,12 @@ public class SSportRequest {
     }
 
 
-    public SSportRequest setRequestDesc(String requestDesc) {
+    public XhwRequest setRequestDesc(String requestDesc) {
         this.requestDesc = requestDesc;
         return this;
     }
 
-    public SSportRequest setTag(String tag) {
+    public XhwRequest setTag(String tag) {
         this.tag = tag;
         return this;
     }
@@ -147,9 +146,9 @@ public class SSportRequest {
      * @param supportResumeBreakPoint
      * @return
      */
-    public SSportRequest setSupportResumeBreakPoint(boolean supportResumeBreakPoint) {
+    public XhwRequest setSupportResumeBreakPoint(boolean supportResumeBreakPoint) {
         this.supportResumeBreakPoint = supportResumeBreakPoint;
-        return (SSportRequest) this;
+        return (XhwRequest) this;
     }
 
 
@@ -157,24 +156,24 @@ public class SSportRequest {
         return url;
     }
 
-    public SSportRequest setUrl(String url) {
+    public XhwRequest setUrl(String url) {
         this.url = url;
         return this;
     }
 
-    public SSportRequest bind(@NonNull Fragment fragment) {
+    public XhwRequest bind(@NonNull Fragment fragment) {
         return setFragment(fragment);
     }
 
-    public SSportRequest bind(@NonNull Activity activity) {
+    public XhwRequest bind(@NonNull Activity activity) {
         return setActivity(activity);
     }
 
-    public SSportRequest bind(@NonNull Context context) {
+    public XhwRequest bind(@NonNull Context context) {
         return setAppContext(context);
     }
 
-    public SSportRequest setActivity(@NonNull Activity activity) {
+    public XhwRequest setActivity(@NonNull Activity activity) {
         this.context = activity;
         if (TextUtils.isEmpty(tag)) {
             tag = activity.getClass().getName();
@@ -189,7 +188,7 @@ public class SSportRequest {
         return this;
     }
 
-    public SSportRequest setFragment(@NonNull Fragment fragment) {
+    public XhwRequest setFragment(@NonNull Fragment fragment) {
         if (TextUtils.isEmpty(tag)) {
             tag = fragment.getClass().getName();
         }
@@ -213,7 +212,7 @@ public class SSportRequest {
     }
 
 
-    public SSportRequest setAppContext(@NonNull Context context) {
+    public XhwRequest setAppContext(@NonNull Context context) {
         this.context = context;
         if (TextUtils.isEmpty(tag)) {
             tag = context.getClass().getName();
@@ -225,7 +224,7 @@ public class SSportRequest {
         return fileMap;
     }
 
-    public SSportRequest setFileMap(HashMap<String, ArrayList<File>> fileMap) {
+    public XhwRequest setFileMap(HashMap<String, ArrayList<File>> fileMap) {
         this.fileMap = fileMap;
         return this;
     }
@@ -234,7 +233,7 @@ public class SSportRequest {
         return requestType;
     }
 
-    public SSportRequest setRequestType(RequestMethod requestType) {
+    public XhwRequest setRequestType(RequestMethod requestType) {
         this.requestType = requestType;
         return this;
     }
@@ -243,7 +242,7 @@ public class SSportRequest {
         return downloadFileDir;
     }
 
-    public SSportRequest setDownloadFileDir(String downloadFileDir) {
+    public XhwRequest setDownloadFileDir(String downloadFileDir) {
         this.downloadFileDir = downloadFileDir;
         return this;
     }
@@ -252,7 +251,7 @@ public class SSportRequest {
         return paramMap;
     }
 
-    public SSportRequest setParamMap(HashMap<String, String> paramMap) {
+    public XhwRequest setParamMap(HashMap<String, String> paramMap) {
         this.paramMap = paramMap;
         return this;
     }
@@ -261,46 +260,46 @@ public class SSportRequest {
         return headerMap;
     }
 
-    public SSportRequest setHeaderMap(HashMap<String, String> headerMap) {
+    public XhwRequest setHeaderMap(HashMap<String, String> headerMap) {
         this.headerMap = headerMap;
         return this;
     }
 
-    public SSportRequest addParam(String key, String value) {
+    public XhwRequest addParam(String key, String value) {
         paramMap.put(key, value);
         return this;
     }
 
-    public SSportRequest removeParam(String key) {
+    public XhwRequest removeParam(String key) {
         if (paramMap != null && paramMap.containsKey(key)) {
             paramMap.remove(key);
         }
         return this;
     }
 
-    public SSportRequest clearParams() {
+    public XhwRequest clearParams() {
         paramMap.clear();
         return this;
     }
 
-    public SSportRequest addHeaderParam(String key, String value) {
+    public XhwRequest addHeaderParam(String key, String value) {
         headerMap.put(key, value);
         return this;
     }
 
-    public SSportRequest removeHeaderParam(String key) {
+    public XhwRequest removeHeaderParam(String key) {
         if (headerMap != null && headerMap.containsKey(key)) {
             headerMap.remove(key);
         }
         return this;
     }
 
-    public SSportRequest clearHeaderParams() {
+    public XhwRequest clearHeaderParams() {
         headerMap.clear();
         return this;
     }
 
-    public SSportRequest addFileParam(@NonNull String key, @NonNull File file) {
+    public XhwRequest addFileParam(@NonNull String key, @NonNull File file) {
 
         if (fileMap.containsKey(key)) {
             ArrayList<File> fileList = fileMap.get(key);
@@ -314,14 +313,14 @@ public class SSportRequest {
         return this;
     }
 
-    public SSportRequest removeFileParam(String key) {
+    public XhwRequest removeFileParam(String key) {
         if (fileMap != null && fileMap.containsKey(key)) {
             fileMap.remove(key);
         }
         return this;
     }
 
-    public SSportRequest clearFileParams() {
+    public XhwRequest clearFileParams() {
         fileMap.clear();
         return this;
     }
@@ -330,7 +329,7 @@ public class SSportRequest {
         return downloadFileName;
     }
 
-    public SSportRequest setDownloadFileName(String downloadFileName) {
+    public XhwRequest setDownloadFileName(String downloadFileName) {
         this.downloadFileName = downloadFileName;
         return this;
     }
@@ -339,11 +338,11 @@ public class SSportRequest {
         return response;
     }
 
-    public SSportRequest send() {
+    public XhwRequest send() {
         return send(null);
     }
 
-    public SSportRequest send(BaseSSResponse proxy) {
+    public XhwRequest send(BaseSSResponse proxy) {
 
         try {
 

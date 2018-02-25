@@ -17,6 +17,7 @@ import com.xhwbaselibrary.enums.NetStatusType;
 
 /**
  * Created by lingdian on 17/9/25.
+ * 网络状态监听
  */
 
 public class MyNetStatusHepler {

@@ -18,7 +18,6 @@ public class LifecycleManager {
     }
 
     public void remove(String id){
-
         for (Lifecycle lifecycle : monitorList) {
             if(lifecycle.getId().equals(id)){
                 monitorList.remove(lifecycle);

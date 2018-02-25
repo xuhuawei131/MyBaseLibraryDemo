@@ -12,13 +12,6 @@ import android.support.annotation.NonNull;
 
 public interface LifeCircleCallback {
     public Context getContext();
-
-    public void onCreate();
-    public void onResume() ;
-    public void onPause() ;
-    public void onStop() ;
-    public void onDestroy() ;
-
     /**
      * 添加生命周期监听
      * @param lifecycle
@@ -30,9 +23,4 @@ public interface LifeCircleCallback {
      * @param lifecycle
      */
     public void removeLifecycleListener(@NonNull Lifecycle lifecycle) ;
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) ;
-
-    public void onConfigurationChanged(Configuration newConfig) ;
-
 }

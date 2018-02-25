@@ -8,7 +8,7 @@ import com.lzy.okgo.OkGo;
 import com.xhwbaselibrary.MyBaseApp;
 import com.xhwbaselibrary.http.executor.HttpExecutor;
 import com.xhwbaselibrary.http.request.XhwPatchRequest;
-import com.xhwbaselibrary.http.request.SSportRequest;
+import com.xhwbaselibrary.http.request.XhwRequest;
 
 /**
  * http 网络管理
@@ -68,7 +68,7 @@ public class XhwHttp {
 //                .addCommonParams(params);                                          //设置全局公共参数
     }
 
-    public void startRequestUrl(SSportRequest request) {
+    public void startRequestUrl(XhwRequest request) {
 
     }
 
@@ -77,10 +77,10 @@ public class XhwHttp {
     }
 
 
-    private static SSportRequest createJYRequest(SSportRequest.RequestMethod requestType) {
+    private static XhwRequest createJYRequest(XhwRequest.RequestMethod requestType) {
 
         Context context = MyBaseApp.context;
-//        SSportRequest request = new SSportRequest()
+//        XhwRequest request = new XhwRequest()
 //                .setRequestType(requestType)
 //                .addParam("clientid", JY_ClientUtil.getClientId())
 //                .addParam("channelid", JY_ClientUtil.getChannelId())
@@ -106,9 +106,9 @@ public class XhwHttp {
      * @param tag
      * @return
      */
-    public static SSportRequest get(@NonNull String tag) {
-        SSportRequest request = new SSportRequest(tag)
-                .setRequestType(SSportRequest.RequestMethod.GET);
+    public static XhwRequest get(@NonNull String tag) {
+        XhwRequest request = new XhwRequest(tag)
+                .setRequestType(XhwRequest.RequestMethod.GET);
         return request;
     }
 
@@ -118,9 +118,9 @@ public class XhwHttp {
      * @param tag
      * @return
      */
-    public static SSportRequest post(@NonNull String tag) {
-        SSportRequest request = new SSportRequest(tag)
-                .setRequestType(SSportRequest.RequestMethod.POST);
+    public static XhwRequest post(@NonNull String tag) {
+        XhwRequest request = new XhwRequest(tag)
+                .setRequestType(XhwRequest.RequestMethod.POST);
         return request;
     }
 
