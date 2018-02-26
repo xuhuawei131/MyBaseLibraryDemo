@@ -178,12 +178,11 @@ public class XhwRequest {
         if (TextUtils.isEmpty(tag)) {
             tag = activity.getClass().getName();
         }
-        if (activity instanceof LifeCircleContext) {
+        if (activity instanceof LifeCircleCallback) {
 
-            LifeCircleContext activityContext = (LifeCircleContext) activity;
-            lcContext = activityContext;
-            LifeCircleCallback presenter = activityContext.getLifeCircleCallbackPresenter();
-            presenter.addLifecycleListener(lifecycle);
+            LifeCircleCallback activityContext = (LifeCircleCallback) activity;
+
+            activityContext.addLifecycleListener(lifecycle);
         }
         return this;
     }
@@ -198,11 +197,9 @@ public class XhwRequest {
             tag = fragment.getClass().getName();
         }
         //如果fragment 实现了LifeCircleContext
-        if (fragment instanceof LifeCircleContext) {
-            LifeCircleContext fragmentContext = (LifeCircleContext) fragment;
-            lcContext = fragmentContext;
-            LifeCircleCallback presenter = fragmentContext.getLifeCircleCallbackPresenter();
-            presenter.addLifecycleListener(lifecycle);
+        if (fragment instanceof LifeCircleCallback) {
+            LifeCircleCallback fragmentContext = (LifeCircleCallback) fragment;
+            fragmentContext.addLifecycleListener(lifecycle);
         }
         return this;
     }

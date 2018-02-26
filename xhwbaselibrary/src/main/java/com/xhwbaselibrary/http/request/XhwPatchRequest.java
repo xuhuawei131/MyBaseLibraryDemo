@@ -1,6 +1,7 @@
 package com.xhwbaselibrary.http.request;
 
-import com.ssports.tvlibray.http.response.PatchSSResponse;
+
+import com.xhwbaselibrary.http.response.PatchSSResponse;
 
 import java.util.List;
 
